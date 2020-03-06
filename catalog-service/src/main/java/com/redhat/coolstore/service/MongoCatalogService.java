@@ -34,7 +34,7 @@ public class MongoCatalogService implements CatalogService {
 
 	public List<Product> getProducts() {
 
-        return new ArrayList<Product>();
+        /*return new ArrayList<Product>();*/
         return StreamSupport.stream(productCollection.find().spliterator(), false)
                 .map(d -> toProduct(d))
                 .collect(Collectors.toList());
