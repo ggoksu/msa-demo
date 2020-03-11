@@ -1388,6 +1388,8 @@ objects:
                 fieldPath: metadata.namespace
           - name: JAVA_OPTIONS
             value: "-Dswarm.project.stage=production -Dswarm.project.stage.file=file:///app/config/review-config.yml"
+          - name: GC_MAX_METASPACE_SIZE
+            value: "200"
           volumeMounts:
             - name: config
               mountPath: /app/config
@@ -1425,7 +1427,7 @@ objects:
             limits:
               memory: 1Gi
             requests:
-              memory: 200Mi
+              memory: 800Mi
         volumes:
           - configMap:
               name: review-config
